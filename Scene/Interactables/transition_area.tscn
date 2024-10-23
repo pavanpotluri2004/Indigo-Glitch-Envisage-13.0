@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf2lic74tipia"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/transition_area.gd" id="1_gm74i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hl2u"]
+size = Vector2(272, 20)
+
+[node name="TransitionArea" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_gm74i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6hl2u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
