@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ixedj7q0tugo"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/checkpoint.gd" id="1_xjv17"]
+[ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_dliwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx8i6"]
+atlas = ExtResource("2_dliwh")
+region = Rect2(1, 128, 14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqx83"]
+size = Vector2(16, 54)
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource("1_xjv17")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+texture = SubResource("AtlasTexture_vx8i6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cqx83")
+
+[node name="Respawn_point" type="Marker2D" parent="."]
+position = Vector2(64, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="checkpoint_reached" from="." to="." method="_on_checkpoint_reached"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://70bdq2a2dg5y"]
+[gd_scene load_steps=14 format=3 uid="uid://70bdq2a2dg5y"]
 
 [ext_resource type="PackedScene" uid="uid://cq5ugfak0diob" path="res://Misc/gui.tscn" id="1_4venv"]
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_fprg1"]
 [ext_resource type="PackedScene" uid="uid://da1fbuqwkluh5" path="res://Scene/Player/player.tscn" id="1_sho67"]
+[ext_resource type="PackedScene" uid="uid://dcuni2chdy64m" path="res://Levels/spawn_point.tscn" id="2_8i7ap"]
 [ext_resource type="PackedScene" uid="uid://w57mekf578ec" path="res://Scene/Environment/Statue/statue_1.tscn" id="2_fo2p2"]
 [ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_uc265"]
 [ext_resource type="PackedScene" uid="uid://cgwkvw3tbhpa8" path="res://Scene/Environment/Statue/statue_2.tscn" id="3_0qrj1"]
@@ -9,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cu3loaly78hs1" path="res://Scene/Interactables/coin.tscn" id="5_bh4sr"]
 [ext_resource type="PackedScene" uid="uid://bmnfjq1oj213s" path="res://Scene/Interactables/spike.tscn" id="6_1hrs3"]
 [ext_resource type="PackedScene" uid="uid://cf2lic74tipia" path="res://Scene/Interactables/transition_area.tscn" id="8_maa1j"]
-[ext_resource type="PackedScene" uid="uid://d105n1nctct78" path="res://Levels/level_3.tscn" id="9_gf1gw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4cj4w"]
 texture = ExtResource("2_uc265")
@@ -306,8 +307,12 @@ terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.737255, 0.211765, 0.654902, 1)
 sources/0 = SubResource("TileSetAtlasSource_4cj4w")
 
-[node name="level_3" type="Node2D"]
+[node name="level_4" type="Node2D"]
 position = Vector2(543, 622)
+script = ExtResource("1_fprg1")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_8i7ap")]
+position = Vector2(-414, -20)
 
 [node name="GUI" parent="." instance=ExtResource("1_4venv")]
 
@@ -342,6 +347,14 @@ position = Vector2(-185, 97)
 
 [node name="statue_5" parent="statue_1" instance=ExtResource("3_0qrj1")]
 position = Vector2(215, -173)
+
+[node name="Player" parent="." instance=ExtResource("1_sho67")]
+position = Vector2(-414, -20)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(235, -81)
+offset = Vector2(-70, 40)
+zoom = Vector2(3, 3)
 
 [node name="crates" parent="." instance=ExtResource("4_astue")]
 position = Vector2(540, -408)
@@ -470,15 +483,7 @@ position = Vector2(606, -61)
 rotation = 3.14159
 current_state = 1
 
-[node name="Player" parent="." instance=ExtResource("1_sho67")]
-position = Vector2(-414, -20)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(235, -81)
-offset = Vector2(-70, 40)
-zoom = Vector2(3, 3)
-
 [node name="Lvl 4-3" parent="." instance=ExtResource("8_maa1j")]
 position = Vector2(-446, -28)
 rotation = 1.57079
-next_scene = ExtResource("9_gf1gw")
+next_scene = "res://Levels/level_3.tscn"

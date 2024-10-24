@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var input
 @export var speed=100.0
 @export var gravity=10
@@ -20,15 +21,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if player_data.life <= 0:
-		current_state = player_states.DEAD
 	match current_state:
 		player_states.MOVE:
 			movement(delta)
 		player_states.SWORD:
 			sword(delta)
-		player_states.DEAD:
-			dead()
 
 func movement(delta):
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -98,10 +95,11 @@ func dead():
 	gravity_force()
 	move_and_slide()
 	await $anim.animation_finished
-	player_data.life = 4
-	player_data.coin = 0
-	if get_tree():
-		get_tree().reload_current_scene()
+	player_data.life = player_data.maxLife
+	position = player_data.respawn_position  # Respawn at the checkpoint
+	current_state = player_states.MOVE  # Reset to MOVE state after respawning
+	player_data.coin = maxi(player_data.coin - 3, 0)
+
 
 func input_movement(delta):
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -124,3 +122,4 @@ func input_movement(delta):
 
 func reset_states():
 	current_state = player_states.MOVE
+

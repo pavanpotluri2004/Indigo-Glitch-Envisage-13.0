@@ -5,7 +5,7 @@ const HEART_OFFSET = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in player_data.life:
+	for i in player_data.maxLife:
 		var new_heart = Sprite2D.new()
 		new_heart.texture = $heart.texture
 		new_heart.hframes = $heart.hframes

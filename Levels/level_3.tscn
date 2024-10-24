@@ -1,6 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://d105n1nctct78"]
 
 [ext_resource type="PackedScene" uid="uid://da1fbuqwkluh5" path="res://Scene/Player/player.tscn" id="1_n2kou"]
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_y4477"]
+[ext_resource type="PackedScene" uid="uid://dcuni2chdy64m" path="res://Levels/spawn_point.tscn" id="2_7ytpm"]
 [ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_h1ors"]
 [ext_resource type="PackedScene" uid="uid://w57mekf578ec" path="res://Scene/Environment/Statue/statue_1.tscn" id="3_cpi2y"]
 [ext_resource type="PackedScene" uid="uid://cgwkvw3tbhpa8" path="res://Scene/Environment/Statue/statue_2.tscn" id="4_inuyb"]
@@ -9,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bmnfjq1oj213s" path="res://Scene/Interactables/spike.tscn" id="7_3otnh"]
 [ext_resource type="PackedScene" uid="uid://cq5ugfak0diob" path="res://Misc/gui.tscn" id="8_fdv60"]
 [ext_resource type="PackedScene" uid="uid://cf2lic74tipia" path="res://Scene/Interactables/transition_area.tscn" id="9_qsbq6"]
-[ext_resource type="PackedScene" uid="uid://d0ymg3ik377rl" path="res://Levels/level_2.tscn" id="11_45s4u"]
-[ext_resource type="PackedScene" uid="uid://70bdq2a2dg5y" path="res://Levels/level_4.tscn" id="11_mwsev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4cj4w"]
 texture = ExtResource("2_h1ors")
@@ -308,6 +308,10 @@ terrain_set_0/terrain_0/color = Color(0.737255, 0.211765, 0.654902, 1)
 sources/0 = SubResource("TileSetAtlasSource_4cj4w")
 
 [node name="level_3" type="Node2D"]
+script = ExtResource("1_y4477")
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_7ytpm")]
+position = Vector2(-397, -319)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xxtpu")
@@ -447,9 +451,9 @@ zoom = Vector2(3, 3)
 [node name="Lvl 3-2" parent="." instance=ExtResource("9_qsbq6")]
 position = Vector2(-435, -344)
 rotation = 1.57079
-next_scene = ExtResource("11_45s4u")
+next_scene = "res://Levels/level_2.tscn"
 
 [node name="Lvl 3-4" parent="." instance=ExtResource("9_qsbq6")]
 position = Vector2(740, -49)
 rotation = 1.57079
-next_scene = ExtResource("11_mwsev")
+next_scene = "res://Levels/level_4.tscn"
