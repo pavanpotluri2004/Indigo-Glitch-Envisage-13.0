@@ -3,7 +3,7 @@ extends Control
 
 
 func _on_start_pressed():
-	GameManager.start_new_game()
+	get_tree().change_scene_to_file("res://Scene/intro_scene.tscn")
 
 
 func _on_options_pressed():

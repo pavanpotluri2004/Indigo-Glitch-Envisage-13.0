@@ -1,0 +1,6 @@
+"I'm sorry," the voice mumbles, filled with regret. "I didn't mean to hurt you. I was just... lost."
+- I understand.
+	set {convoScore} += 1
+- It doesn't matter now.
+	set {convoScore} -= 1
+[wait time="1.0"]

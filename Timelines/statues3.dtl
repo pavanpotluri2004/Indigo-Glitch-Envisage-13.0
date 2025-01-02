@@ -1,0 +1,6 @@
+ "It's too late," the voice whispers, resignation heavy in the air. "We should have said those things when we had the chance."
+- It's not too late to learn
+	set {convoScore} += 0.5
+- There's no point in dwelling on the past.
+	set {convoScore} -= 1
+[wait time="1.0"]

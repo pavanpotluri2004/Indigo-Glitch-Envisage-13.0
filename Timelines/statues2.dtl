@@ -1,0 +1,6 @@
+ "Please, don't go," the voice pleads, filled with desperation. "I have so much more to say. So many things I wanted to tell you."
+- I'm listening.
+	set {convoScore} += 1
+- It's too late now.
+	set {convoScore} -= 1
+[wait time="1.0"]

@@ -6,6 +6,7 @@ static var maxLife = 4
 static var life : int
 static var respawn_position = Vector2()  # Store respawn position
 static var has_checkpoint = false  # Track if a checkpoint was crossed
+static var canInteract = false
 
 enum player_states {MOVE, SWORD, DEAD}
 

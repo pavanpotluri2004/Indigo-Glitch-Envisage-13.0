@@ -1,0 +1,15 @@
+Laughter... screams... silence." The voice trails off, filled with a profound sense of loss. "I remember everything. The good times, the bad times, the things we never said. What now?
+- I will learn to live with these memories.
+	set {convoScore} += 2
+- I will try to forget.
+	set {convoScore} -= 2
+[wait time="2.0"]
+if {convoScore} >= 2:
+	"You stand before the final statue, a sense of peace washing over you. The city of memories begins to fade, replaced by a familiar landscape".
+	"You awaken in your bed, the scent of pancakes filling the air. It's your birthday. You smile, a genuine smile, and get out of bed. The world feels brighter, the colors more vibrant".
+	"You decide to spend the day doing something you love, something that brings you joy. You will cherish the memories, both good and bad, and learn to live with them."
+else:
+	"You stand before the final statue, a wave of despair washing over you. The city of memories intensifies, the shadows deepening".
+	"You awaken in your bed, the scent of pancakes filling the air. It's your birthday. But the joy is gone, replaced by a deep sense of dread. The memories continue to haunt you, a constant reminder of what you've lost".
+[wait time="4.0"]
+[signal arg="GameOver"]

@@ -1,0 +1,6 @@
+"Who am I?" the voice whispers, filled with confusion. "Am I the boy who laughed with his friends? Or the one who sits alone in the shadows? The city around me crumbles, mirroring the fragments of my own identity."
+- I am more than these fragments.
+	set {convoScore} += 1
+- I don't recognize myself.
+	set {convoScore} -= 1
+[wait time="1.0"]

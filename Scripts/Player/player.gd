@@ -28,6 +28,9 @@ func _physics_process(delta):
 			sword(delta)
 
 func movement(delta):
+	if player_data.canInteract == true and Input.is_action_pressed("Interact"):
+		Dialogic.start("statues" + str(GameManager.current_level_index + 1))
+	
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if input != 0 :

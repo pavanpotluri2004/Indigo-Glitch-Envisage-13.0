@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="1_run20"]
 
 [node name="statue_1" type="Node2D"]
-position = Vector2(58, -43)
+position = Vector2(0, -43)
 
 [node name="head_1" type="Sprite2D" parent="."]
 position = Vector2(0, 2)

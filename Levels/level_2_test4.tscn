@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dcuni2chdy64m" path="res://Levels/spawn_point.tscn" id="3_gkunn"]
 [ext_resource type="PackedScene" uid="uid://da1fbuqwkluh5" path="res://Scene/Player/player.tscn" id="4_7vgm5"]
 [ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="5_b3o37"]
-[ext_resource type="PackedScene" uid="uid://w57mekf578ec" path="res://Scene/Environment/Statue/statue_1.tscn" id="6_lm0mv"]
 [ext_resource type="PackedScene" uid="uid://cgwkvw3tbhpa8" path="res://Scene/Environment/Statue/statue_2.tscn" id="7_s2o4v"]
 [ext_resource type="PackedScene" uid="uid://cfc7j63gk2gdr" path="res://Scene/Interactables/crates.tscn" id="8_a6v3o"]
 [ext_resource type="PackedScene" uid="uid://cu3loaly78hs1" path="res://Scene/Interactables/coin.tscn" id="9_kpbl7"]
@@ -320,6 +319,14 @@ size = Vector2(42, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eakss"]
 size = Vector2(42, 20)
 
+[sub_resource type="Environment" id="Environment_3qdnu"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 5.01
+glow_strength = 1.48
+glow_blend_mode = 1
+glow_hdr_threshold = 1.25
+
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_m47ar")
 
@@ -358,16 +365,6 @@ layer_2/name = "grass"
 layer_2/enabled = false
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-65535, 458752, 0, -6, 524288, 0, -4, 393216, 0, -3, 393216, 0, -65536, 524288, 0, -65529, 393216, 0, -458752, 458752, 2, -458750, 327680, 2, -393219, 393216, 2, -720891, 524288, 1, -720890, 327680, 2, -720887, 327680, 2, -655369, 327680, 2, -655368, 327680, 2, -655367, 393216, 2, -655366, 524288, 1, -655364, 327680, 2, -196600, 524288, 0, -1, 458752, 0)
-
-[node name="statue" type="Node2D" parent="."]
-position = Vector2(155, 185)
-
-[node name="statue_1" parent="statue" instance=ExtResource("6_lm0mv")]
-z_index = -1
-position = Vector2(85, -41)
-
-[node name="statue_2" parent="statue" instance=ExtResource("7_s2o4v")]
-position = Vector2(-83, -65)
 
 [node name="crates" parent="." instance=ExtResource("8_a6v3o")]
 visible = false
@@ -430,26 +427,35 @@ current_state = 1
 position = Vector2(344, 208)
 current_state = 1
 
-[node name="LeftExit" type="Area2D" parent="."]
+[node name="LeftExit" type="Area2D" parent="." groups=["level_exit"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftExit"]
 position = Vector2(-32, 111.5)
 shape = SubResource("RectangleShape2D_gqggx")
 
-[node name="RightExit" type="Area2D" parent="."]
+[node name="RightExit" type="Area2D" parent="." groups=["level_exit"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightExit"]
 position = Vector2(408, 220)
 shape = SubResource("RectangleShape2D_2jaql")
 
-[node name="TopExit" type="Area2D" parent="."]
+[node name="TopExit" type="Area2D" parent="." groups=["level_exit"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopExit"]
 position = Vector2(267, -32)
 shape = SubResource("RectangleShape2D_l4gp4")
 
-[node name="BottomExit" type="Area2D" parent="."]
+[node name="BottomExit" type="Area2D" parent="." groups=["level_exit"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomExit"]
 position = Vector2(155, 256)
 shape = SubResource("RectangleShape2D_eakss")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(272, -8)
+
+[node name="Statue" parent="." instance=ExtResource("7_s2o4v")]
+position = Vector2(224, 184)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3qdnu")
