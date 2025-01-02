@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://blov2ix668cc5"]
 
 [ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_40g5l"]
-[ext_resource type="Texture2D" uid="uid://p51nmspci63o" path="res://main menu image.png" id="2_of06x"]
+[ext_resource type="Texture2D" uid="uid://bymdv2tdr8xg6" path="res://IGBG Image.png" id="2_fr8h6"]
 [ext_resource type="FontFile" uid="uid://2086s45c1blb" path="res://GrapeSoda.ttf" id="3_f4255"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1lrkg"]
-texture = ExtResource("2_of06x")
+texture = ExtResource("2_fr8h6")
 modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y30c"]
@@ -25,6 +25,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 16.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1lrkg")

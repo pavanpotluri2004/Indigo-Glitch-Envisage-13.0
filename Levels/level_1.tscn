@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://8xpkgvlgo8nh"]
 
-[ext_resource type="Script" path="res://Levels/level.gd" id="1_8rk4b"]
 [ext_resource type="Script" path="res://Scripts/Control/camera.gd" id="1_glqmi"]
+[ext_resource type="Script" path="res://Scripts/level_order_generator.gd" id="1_o0f46"]
 [ext_resource type="PackedScene" uid="uid://da1fbuqwkluh5" path="res://Scene/Player/player.tscn" id="1_sprsx"]
 [ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_s8cdo"]
 [ext_resource type="PackedScene" uid="uid://w57mekf578ec" path="res://Scene/Environment/Statue/statue_1.tscn" id="3_alylf"]
@@ -308,7 +308,7 @@ terrain_set_0/terrain_0/color = Color(0.737255, 0.211765, 0.654902, 1)
 sources/0 = SubResource("TileSetAtlasSource_vt8hl")
 
 [node name="level_1" type="Node2D"]
-script = ExtResource("1_8rk4b")
+script = ExtResource("1_o0f46")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(107, 134)
