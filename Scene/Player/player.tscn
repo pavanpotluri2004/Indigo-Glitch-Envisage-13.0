@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://da1fbuqwkluh5"]
+[gd_scene load_steps=14 format=3 uid="uid://da1fbuqwkluh5"]
 
 [ext_resource type="Texture2D" uid="uid://c01vk8otreq5j" path="res://Sprites/Player/Player_metroid.png" id="1_bv1ux"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_jsw0j"]
+[ext_resource type="AudioStream" uid="uid://byadddd2igbwm" path="res://Audio/melancholic-acoustic-guitar-for-reflective-moments-15s-232402.mp3" id="3_eo85l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5qu8"]
 radius = 6.0
@@ -202,3 +203,6 @@ position = Vector2(21, 0)
 shape = SubResource("RectangleShape2D_87tki")
 disabled = true
 debug_color = Color(0.843137, 0.25098, 0.388235, 0.419608)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_eo85l")

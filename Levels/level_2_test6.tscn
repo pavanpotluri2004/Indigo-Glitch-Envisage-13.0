@@ -376,13 +376,12 @@ position = Vector2(120, 16)
 position = Vector2(44, 176)
 
 [node name="coin3" parent="." instance=ExtResource("9_wctir")]
-position = Vector2(208, 208)
+position = Vector2(344, 105)
 
 [node name="coin4" parent="." instance=ExtResource("9_wctir")]
 position = Vector2(300, 189)
 
 [node name="GUI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("9_t767t")
 
 [node name="heart" type="Sprite2D" parent="GUI"]
@@ -415,11 +414,11 @@ scale = Vector2(-1, -1)
 current_state = 1
 
 [node name="spike3" parent="." instance=ExtResource("13_bfb0e")]
-position = Vector2(96, 159)
+position = Vector2(96, 160)
 current_state = 1
 
 [node name="spike6" parent="." instance=ExtResource("13_bfb0e")]
-position = Vector2(344, 110)
+position = Vector2(344, 112)
 current_state = 1
 
 [node name="LeftExit" type="Area2D" parent="." groups=["level_exit"]]

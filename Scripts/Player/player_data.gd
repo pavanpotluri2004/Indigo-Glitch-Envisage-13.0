@@ -2,11 +2,13 @@ extends Node2D
 class_name player_data
 
 static var coin = 0
-static var maxLife = 4
+static var maxLife = 6
 static var life : int
 static var respawn_position = Vector2()  # Store respawn position
 static var has_checkpoint = false  # Track if a checkpoint was crossed
 static var canInteract = false
+static var canMove = true
+static var interactedCount = 0
 
 enum player_states {MOVE, SWORD, DEAD}
 

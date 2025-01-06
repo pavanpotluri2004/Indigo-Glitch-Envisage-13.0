@@ -6,6 +6,9 @@ var current_level_index: int = 0
 var level_sequence: Array = []
 var player_entry_direction: Direction
 
+@onready var animPlayer: AnimationPlayer = Transitions.get_node("AnimationPlayer")
+@onready var loopTimer: Timer = Transitions.get_node("Timer")
+
 # Dictionary to store spawn and exit positions for each level
 # Format: level_name: { 
 #   "spawns": { Direction: Vector2 },
@@ -87,9 +90,23 @@ var level_data = {
 	},
 }
 
+# func LoopTimer():
+	# get_tree().change_scene_to_file("res://Scene/intro_scene.tscn")
 
+func _ready():
+	Dialogic.signal_event.connect(GameOver)
+	
+func BackToIntro():
+	get_tree().change_scene_to_file("res://Scene/intro_scene.tscn
+	")
 
 func start_new_game():
+	
+	# loopTimer.timeout.connect(LoopTimer)
+	# loopTimer.start()
+	
+	
+	BackgroundMusic.playing = true
 	current_level_index = 0
 	level_sequence = [
 		"res://levels/level_2_test1.tscn",
@@ -99,6 +116,13 @@ func start_new_game():
 		"res://levels/level_2_test6.tscn"
 	]
 	level_sequence.shuffle()
+	
+	# This is a Hack
+	if level_sequence[0] == "res://levels/level_2_test2.tscn":
+		var temp = level_sequence[1]
+		level_sequence[1] = level_sequence[0]
+		level_sequence[0] = temp
+	# Fix this with an implementation that can have 2 as a start level	
 	load_current_level(Direction.TOP)  # Default first entry
 
 func get_level_name_from_path(path: String) -> String:
@@ -113,16 +137,18 @@ func get_spawn_position(level_name: String, entry_direction: Direction) -> Vecto
 		return Vector2(300, 300)  # Default fallback position
 
 func load_current_level(entry_direction: Direction):
-	if current_level_index < level_sequence.size():
-		player_entry_direction = entry_direction
-		get_tree().change_scene_to_file(level_sequence[current_level_index])
-	else:
-		print("Game Completed!")
+	player_entry_direction = entry_direction
+	animPlayer.play("FadeOut")
+	await animPlayer.animation_finished
+	get_tree().change_scene_to_file(level_sequence[current_level_index])
+	animPlayer.play("FadeIn")
+	
 
 func next_level(exit_direction: Direction):
-	current_level_index += 1
+	current_level_index = current_level_index + 1 if player_data.interactedCount == current_level_index + 1 else current_level_index
 	current_level_index = min(level_sequence.size() - 1, current_level_index)
 	var entry_direction = get_opposite_direction(exit_direction)
+	
 	load_current_level(entry_direction)
 
 func get_opposite_direction(direction: Direction) -> Direction:
@@ -177,3 +203,16 @@ func create_respawn_effect(old_pos: Vector2, new_pos: Vector2):
 	
 	# Clean up
 	canvas_layer.queue_free()
+
+
+func GameOver(argument: String):
+	print("Done")
+	if argument == "GameOver":
+		print("Done2")
+		Transitions.get_node("Label").show()
+		animPlayer.play("FadeOutGameOver")
+		await animPlayer.animation_finished
+		get_tree().change_scene_to_file("res://Scene/Main Menu/main_menu.tscn")
+		animPlayer.play("FadeIn")
+		Transitions.get_node("Label").hide()
+		

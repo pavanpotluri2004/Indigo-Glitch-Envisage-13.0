@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bt7eue6agd5jp"]
+[gd_scene load_steps=18 format=3 uid="uid://bt7eue6agd5jp"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_t70pv"]
 [ext_resource type="Script" path="res://Scripts/Control/camera.gd" id="2_sb1nc"]
@@ -7,7 +7,6 @@
 [ext_resource type="TileSet" uid="uid://bi3dvwyuvbgp6" path="res://Levels/tileset.tres" id="5_muinj"]
 [ext_resource type="PackedScene" uid="uid://w57mekf578ec" path="res://Scene/Environment/Statue/statue_1.tscn" id="6_vckvh"]
 [ext_resource type="PackedScene" uid="uid://cgwkvw3tbhpa8" path="res://Scene/Environment/Statue/statue_2.tscn" id="7_qqm5h"]
-[ext_resource type="PackedScene" uid="uid://cfc7j63gk2gdr" path="res://Scene/Interactables/crates.tscn" id="8_cbbsl"]
 [ext_resource type="PackedScene" uid="uid://cu3loaly78hs1" path="res://Scene/Interactables/coin.tscn" id="9_2opgy"]
 [ext_resource type="Script" path="res://Scripts/UI/GUI.gd" id="10_i547q"]
 [ext_resource type="Texture2D" uid="uid://cstsjbrm1uaqq" path="res://Sprites/UI/HeartSpriteSheet.png" id="11_lup5x"]
@@ -29,8 +28,8 @@ size = Vector2(74, 20)
 [sub_resource type="Environment" id="Environment_crhjt"]
 background_mode = 3
 glow_enabled = true
-glow_intensity = 5.01
-glow_strength = 1.48
+glow_intensity = 1.0
+glow_strength = 0.8
 glow_blend_mode = 1
 glow_hdr_threshold = 1.25
 
@@ -84,10 +83,6 @@ position = Vector2(189, -77)
 [node name="statue_2" parent="statue" instance=ExtResource("7_qqm5h")]
 position = Vector2(53, -20)
 
-[node name="crates" parent="." instance=ExtResource("8_cbbsl")]
-visible = false
-position = Vector2(368, 32)
-
 [node name="coin" parent="." instance=ExtResource("9_2opgy")]
 position = Vector2(24, 216)
 
@@ -101,7 +96,6 @@ position = Vector2(320, 109)
 position = Vector2(256, 32)
 
 [node name="GUI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("10_i547q")
 
 [node name="heart" type="Sprite2D" parent="GUI"]
@@ -144,11 +138,11 @@ scale = Vector2(-1, -1)
 current_state = 1
 
 [node name="spike5" parent="." instance=ExtResource("13_5mwhg")]
-position = Vector2(88, 109)
+position = Vector2(88, 113)
 current_state = 1
 
 [node name="spike8" parent="." instance=ExtResource("13_5mwhg")]
-position = Vector2(184, 109)
+position = Vector2(184, 113)
 current_state = 1
 
 [node name="spike7" parent="." instance=ExtResource("13_5mwhg")]

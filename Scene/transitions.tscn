@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://c15o3i0vttvhd"]
+
+[ext_resource type="FontFile" uid="uid://c3hs61yyrailu" path="res://Misc/Rushfordclean-rgz89.otf" id="1_5inrp"]
+
+[sub_resource type="Animation" id="Animation_k6e4h"]
+resource_name = "FadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xg5qf"]
+resource_name = "FadeOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k4jua"]
+resource_name = "FadeOutGameOver"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, -200), Vector2(50, 50)]
+}
+
+[sub_resource type="Animation" id="Animation_co2w1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, -312)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu4i3"]
+_data = {
+"FadeIn": SubResource("Animation_k6e4h"),
+"FadeOut": SubResource("Animation_xg5qf"),
+"FadeOutGameOver": SubResource("Animation_k4jua"),
+"RESET": SubResource("Animation_co2w1")
+}
+
+[node name="Transitions" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
+layout_mode = 0
+offset_left = -527.0
+offset_top = -492.0
+offset_right = 1393.0
+offset_bottom = 843.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eu4i3")
+}
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = 288.0
+offset_top = -312.0
+offset_right = 877.0
+offset_bottom = -51.0
+theme_override_fonts/font = ExtResource("1_5inrp")
+theme_override_font_sizes/font_size = 90
+text = "THE END!"
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 40.0

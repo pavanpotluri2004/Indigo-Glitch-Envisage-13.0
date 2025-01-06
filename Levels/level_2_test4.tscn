@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://qijcci67rdwo"]
+[gd_scene load_steps=19 format=3 uid="uid://qijcci67rdwo"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_m47ar"]
 [ext_resource type="Script" path="res://Scripts/Control/camera.gd" id="2_yp2ah"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://da1fbuqwkluh5" path="res://Scene/Player/player.tscn" id="4_7vgm5"]
 [ext_resource type="Texture2D" uid="uid://cp3axjmq5jt58" path="res://Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="5_b3o37"]
 [ext_resource type="PackedScene" uid="uid://cgwkvw3tbhpa8" path="res://Scene/Environment/Statue/statue_2.tscn" id="7_s2o4v"]
-[ext_resource type="PackedScene" uid="uid://cfc7j63gk2gdr" path="res://Scene/Interactables/crates.tscn" id="8_a6v3o"]
 [ext_resource type="PackedScene" uid="uid://cu3loaly78hs1" path="res://Scene/Interactables/coin.tscn" id="9_kpbl7"]
 [ext_resource type="Script" path="res://Scripts/UI/GUI.gd" id="10_x68oy"]
 [ext_resource type="Texture2D" uid="uid://cstsjbrm1uaqq" path="res://Sprites/UI/HeartSpriteSheet.png" id="11_hw6fv"]
@@ -366,10 +365,6 @@ layer_2/enabled = false
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-65535, 458752, 0, -6, 524288, 0, -4, 393216, 0, -3, 393216, 0, -65536, 524288, 0, -65529, 393216, 0, -458752, 458752, 2, -458750, 327680, 2, -393219, 393216, 2, -720891, 524288, 1, -720890, 327680, 2, -720887, 327680, 2, -655369, 327680, 2, -655368, 327680, 2, -655367, 393216, 2, -655366, 524288, 1, -655364, 327680, 2, -196600, 524288, 0, -1, 458752, 0)
 
-[node name="crates" parent="." instance=ExtResource("8_a6v3o")]
-visible = false
-position = Vector2(368, 32)
-
 [node name="coin" parent="." instance=ExtResource("9_kpbl7")]
 position = Vector2(229, 56)
 
@@ -377,13 +372,12 @@ position = Vector2(229, 56)
 position = Vector2(112, 136)
 
 [node name="coin3" parent="." instance=ExtResource("9_kpbl7")]
-position = Vector2(176, 216)
+position = Vector2(8, 88)
 
 [node name="coin4" parent="." instance=ExtResource("9_kpbl7")]
 position = Vector2(312, 187)
 
 [node name="GUI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("10_x68oy")
 
 [node name="heart" type="Sprite2D" parent="GUI"]
@@ -415,12 +409,17 @@ position = Vector2(229, 32)
 scale = Vector2(-1, -1)
 current_state = 1
 
+[node name="spike4" parent="." instance=ExtResource("13_xheoq")]
+position = Vector2(8, 80)
+scale = Vector2(-1, -1)
+current_state = 1
+
 [node name="spike3" parent="." instance=ExtResource("13_xheoq")]
-position = Vector2(44, 142)
+position = Vector2(44, 144)
 current_state = 1
 
 [node name="spike5" parent="." instance=ExtResource("13_xheoq")]
-position = Vector2(256, 174)
+position = Vector2(256, 176)
 current_state = 1
 
 [node name="spike6" parent="." instance=ExtResource("13_xheoq")]

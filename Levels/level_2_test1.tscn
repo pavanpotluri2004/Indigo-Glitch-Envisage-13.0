@@ -382,7 +382,6 @@ position = Vector2(240, 144)
 position = Vector2(296, 106)
 
 [node name="GUI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("10_1b4ca")
 
 [node name="heart" type="Sprite2D" parent="GUI"]
@@ -415,7 +414,7 @@ scale = Vector2(-1, -1)
 current_state = 1
 
 [node name="spike3" parent="." instance=ExtResource("13_ki3qw")]
-position = Vector2(88, 110)
+position = Vector2(88, 113)
 current_state = 1
 
 [node name="spike5" parent="." instance=ExtResource("13_ki3qw")]
